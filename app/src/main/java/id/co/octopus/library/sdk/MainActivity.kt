@@ -20,7 +20,12 @@ class MainActivity : AppCompatActivity(), TimePickerListener {
     }
 
     private fun showDialog() {
-        DialogUtils.showTimePickerBottomDialog(this@MainActivity, "Pilih Jam Tutup", this@MainActivity)
+        val tvTimePicked = findViewById<TextView>(R.id.tvTimePicked)
+        DialogUtils.showTimePickerBottomDialog(
+            this@MainActivity,
+            "Pilih Jam Tutup",
+            tvTimePicked.text.toString(),
+            this@MainActivity)
     }
 
     /*

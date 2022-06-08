@@ -12,6 +12,8 @@ import android.text.TextWatcher
 import android.widget.EditText
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.ceil
 import kotlin.math.roundToInt
 
@@ -174,5 +176,9 @@ object CommonUtils {
             i++
         }
         return rFinal
+    }
+
+    fun RecyclerView?.getCurrentPosition() : Int {
+        return (this?.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition() - 1
     }
 }

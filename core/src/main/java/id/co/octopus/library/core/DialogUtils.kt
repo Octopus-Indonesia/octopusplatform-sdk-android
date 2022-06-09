@@ -5,7 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.*
 import androidx.recyclerview.widget.RecyclerView.SmoothScroller
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import id.co.octopus.library.core.CommonUtils.getCurrentPosition
+import id.co.octopus.library.core.CommonUtils.getCenterPosition
 import id.co.octopus.library.core.timepicker.HourAdapter
 import id.co.octopus.library.core.timepicker.MinuteAdapter
 import id.co.octopus.library.core.timepicker.TimePickerListener
@@ -90,6 +90,12 @@ object DialogUtils {
         )
 
         rvHour?.layoutManager = layoutManagerForHour
+        rvHour?.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                layoutManagerForHour.orientation
+            )
+        )
         smoothScroller.targetPosition = existingPositionHour
         layoutManagerForHour.startSmoothScroll(smoothScroller)
 
@@ -111,6 +117,12 @@ object DialogUtils {
         )
 
         rvMinute?.layoutManager = layoutManagerForMinute
+        rvMinute?.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                layoutManagerForMinute.orientation
+            )
+        )
         smoothScrollerMinute.targetPosition = existingPositionMinute
         layoutManagerForMinute.startSmoothScroll(smoothScrollerMinute)
 
@@ -128,14 +140,14 @@ object DialogUtils {
         rvHour?.addOnScrollListener(object: RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                positionItemListHour = rvHour.getCurrentPosition()
+                positionItemListHour = rvHour.getCenterPosition()
             }
         })
 
         rvMinute?.addOnScrollListener(object: RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                positionItemListMinute = rvMinute.getCurrentPosition()
+                positionItemListMinute = rvMinute.getCenterPosition()
             }
         })
 

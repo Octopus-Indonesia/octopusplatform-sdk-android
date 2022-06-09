@@ -62,14 +62,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHour"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="145dp"
             android:layout_weight="1"
             tools:listitem="@layout/item_list_hour" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMinute"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="145dp"
             android:layout_weight="1"
             tools:listitem="@layout/item_list_minute" />
 

@@ -178,7 +178,7 @@ object CommonUtils {
         return rFinal
     }
 
-    fun RecyclerView?.getCurrentPosition() : Int {
-        return (this?.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition() - 1
+    fun RecyclerView?.getCenterPosition() : Int {
+        return (this?.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
     }
 }

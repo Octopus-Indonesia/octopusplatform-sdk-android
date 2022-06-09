@@ -34,7 +34,12 @@ import id.co.octopus.library.core.timepicker.TimePickerListener
 class MainActivity : AppCompatActivity(), TimePickerListener {
 
     private fun showDialog() {
-        DialogUtils.showTimePickerBottomDialog(this@MainActivity, "Pilih Jam Tutup", this@MainActivity)
+        DialogUtils.showTimePickerBottomDialog(
+		this@MainActivity, 
+		"Title Dialog",
+		textView.text.toString(),
+		this@MainActivity
+	)
     }
 
     /*
@@ -42,6 +47,15 @@ class MainActivity : AppCompatActivity(), TimePickerListener {
     * */
     override fun onPicked(timePicked: String) {
         Log.d(TAG, timePicked)
+	textView.text = timePicked
     }
 }
 ```
+
+#### Demo
+
+https://user-images.githubusercontent.com/14218447/172750271-c9e50e60-9046-4703-ab95-8fbe47bc8ad8.mp4
+
+
+
+

@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:nestedScrollingEnabled="true"
     android:paddingBottom="32dp"
+    android:paddingTop="16dp"
     >
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -30,7 +31,7 @@
         android:gravity="center"
         android:text="Jam"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/tvMinute"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,7 @@
         android:gravity="center"
         android:text="Menit"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvHour"
@@ -61,14 +62,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHour"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="145dp"
             android:layout_weight="1"
             tools:listitem="@layout/item_list_hour" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMinute"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="145dp"
             android:layout_weight="1"
             tools:listitem="@layout/item_list_minute" />
 
@@ -86,6 +87,7 @@
         android:textSize="14sp"
         android:textColor="#44B598"
         android:gravity="center"
+        android:fontFamily="@font/poppins_bold"
         android:background="@drawable/bg_grey"
         app:layout_constraintEnd_toStartOf="@+id/btnSave"
         app:layout_constraintHorizontal_bias="0.5"
@@ -104,6 +106,7 @@
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:gravity="center"
+        android:fontFamily="@font/poppins_bold"
         android:background="@drawable/bg_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

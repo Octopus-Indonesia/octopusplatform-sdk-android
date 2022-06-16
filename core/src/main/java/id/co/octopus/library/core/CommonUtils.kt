@@ -9,6 +9,7 @@ import android.net.NetworkInfo
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Button
 import android.widget.EditText
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
@@ -181,4 +182,23 @@ object CommonUtils {
     fun RecyclerView?.getCenterPosition() : Int {
         return (this?.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
     }
+
+    fun Button.enableButton(color: String = "green"): Button {
+        return (this.apply {
+            isEnabled = true
+            background = if (color == "green") {
+                resources.getDrawable(R.drawable.bg_green_button_enable)
+            } else {
+                resources.getDrawable(R.drawable.bg_blue_button_enable)
+            }
+        })
+    }
+
+    fun Button.disableButton(): Button {
+        return (this.apply {
+            isEnabled = false
+            background = resources.getDrawable(R.drawable.bg_button_disable)
+        })
+    }
+
 }

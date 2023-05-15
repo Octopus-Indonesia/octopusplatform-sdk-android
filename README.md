@@ -169,4 +169,4 @@ class MainActivity : AppCompatActivity(), TextPickerListener //implement the lis
 
 #### Demo
 
-![](image/sample-text-picker-view.webm)
+[device-2023-05-15-111231.webm](https://github.com/Octopus-Indonesia/octopusplatform-sdk-android/assets/14218447/fc8a3f14-1a10-4e40-9f8e-cab16b0b61a5)

@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity(), TimePickerListener, TextPickerListener
                 dialogTitle = "Choose Gender",
                 list = listForDialog,
                 listener = this@MainActivity,
+                tag = "tag1",
                 textSizePickerSelected = resources.getDimension(R.dimen.text_picker_view_selected_size),
                 textSizePickerDefault = resources.getDimension(R.dimen.text_picker_view_default_size)
             )
@@ -80,12 +81,23 @@ class MainActivity : AppCompatActivity(), TimePickerListener, TextPickerListener
     /*
     * Get text who selected in bottom dialog
     * */
-    override fun onTextPicked(textSelected: String) {
-        Toast.makeText(
-            this,
-            "textSelected: $textSelected",
-            Toast.LENGTH_SHORT
-        ).show()
+    override fun onTextPicked(textSelected: String, tag: String?) {
+        when(tag) {
+            "tag1" -> {
+                Toast.makeText(
+                    this,
+                    "tag1: $textSelected",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else -> {
+                Toast.makeText(
+                    this,
+                    "default: $textSelected",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
 }

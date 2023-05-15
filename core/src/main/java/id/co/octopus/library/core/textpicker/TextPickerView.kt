@@ -11,7 +11,7 @@ import id.co.octopus.library.core.R
 import id.co.octopus.library.core.databinding.ViewTextPickerBinding
 import id.co.octopus.library.core.textpicker.adapter.TextPickerAdapter
 
-class TextPickerView : BaseMaterialDataPickerView {
+class TextPickerView : BaseTextPickerView {
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attributeSet: AttributeSet?) : this(

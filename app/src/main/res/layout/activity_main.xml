@@ -46,7 +46,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        app:textGravityOfPicker="start"
+        app:textGravityOfPicker="center"
         app:textSizePickerDefault="18sp"
         app:textSizePickerSelected="20sp"
         app:layout_constraintTop_toBottomOf="@id/btnSampleButtonState"

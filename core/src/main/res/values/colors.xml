@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_color_picker_selected">#151515</color>
+    <color name="text_color_picker_default">#AEAEAE</color>
+    <color name="color_black">#151515</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_divider">#D4D4D4</color>
+    <color name="color_blue">#6595D7</color>
+</resources>

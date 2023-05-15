@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_picker_view_padding_top">24dp</dimen>
+    <dimen name="text_picker_view_padding_bottom">24dp</dimen>
+    <dimen name="text_picker_view_selected_size">20sp</dimen>
+    <dimen name="text_picker_view_default_size">18sp</dimen>
+</resources>

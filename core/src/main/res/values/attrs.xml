@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextPickerView">
+        <attr name="backgroundCenterOfView" format="reference" />
+        <attr name="textColorPickerSelected" format="color"/>
+        <attr name="textColorPickerDefault" format="color"/>
+        <attr name="textSizePickerSelected" format="dimension"/>
+        <attr name="textSizePickerDefault" format="dimension"/>
+        <attr name="textGravityOfPicker" format="integer">
+            <enum name="start" value="3"/>
+            <enum name="end" value="5"/>
+            <enum name="center" value="17"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TextPickerOverlay">
+        <attr name="textPickerViewStyle" format="reference"/>
+    </declare-styleable>
+</resources>

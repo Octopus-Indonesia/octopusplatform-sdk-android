@@ -12,4 +12,10 @@
 
     <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
 
+    <style name="Base.Widget.TextPickerView" parent="">
+        <item name="backgroundCenterOfView">@drawable/bg_text_picker_selected</item>
+    </style>
+
+    <style name="Widget.TextPickerView" parent="Base.Widget.TextPickerView"/>
+
 </resources>

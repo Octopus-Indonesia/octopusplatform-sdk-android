@@ -173,6 +173,7 @@ object DialogUtils {
         textSizePickerSelected: Float? = null,
         textColorPickerDefault: Int? = null,
         textColorPickerSelected: Int? = null,
+        tag: String = "",
         listener: TextPickerListener
     ) {
         val bottomSheetDialog = BottomSheetDialog(context, R.style.BottomSheetDialogTheme)
@@ -208,7 +209,10 @@ object DialogUtils {
         }
 
         btnDialog?.setOnClickListener {
-            listener.onTextPicked("${textPickerView?.getTextPicked()}")
+            listener.onTextPicked(
+                "${textPickerView?.getTextPicked()}",
+                tag
+            )
             bottomSheetDialog.dismiss()
         }
 

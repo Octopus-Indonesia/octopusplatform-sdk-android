@@ -1,5 +1,5 @@
 package id.co.octopus.library.core.textpicker
 
 interface TextPickerListener {
-    fun onTextPicked(textSelected: String)
+    fun onTextPicked(textSelected: String, tag: String?)
 }

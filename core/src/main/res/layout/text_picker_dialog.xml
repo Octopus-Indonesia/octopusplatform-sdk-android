@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:nestedScrollingEnabled="true"
+    android:paddingBottom="32dp"
+    android:paddingTop="16dp"
+    >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        tools:text="dialog title"
+        android:textColor="@color/color_black"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_divider"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogTitle"
+        android:layout_marginTop="16dp"
+        />
+
+    <id.co.octopus.library.core.textpicker.TextPickerView
+        android:id="@+id/textPickerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:textGravityOfPicker="start"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogTitle"
+        />
+
+    <View
+        android:id="@+id/bottomDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_divider"
+        app:layout_constraintTop_toBottomOf="@id/textPickerView"
+        android:layout_marginTop="16dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnDialog"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:text="@string/text_picker_dialog_button"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textColor="@color/color_white"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@drawable/bg_blue_button_enable"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/bottomDivider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,17 @@
 package id.co.octopus.library.core
 
 import android.content.Context
+import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.*
 import androidx.recyclerview.widget.RecyclerView.SmoothScroller
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import id.co.octopus.library.core.CommonUtils.getCenterPosition
+import id.co.octopus.library.core.textpicker.TextPickerListener
+import id.co.octopus.library.core.textpicker.TextPickerView
 import id.co.octopus.library.core.timepicker.HourAdapter
 import id.co.octopus.library.core.timepicker.MinuteAdapter
 import id.co.octopus.library.core.timepicker.TimePickerListener
-
 
 object DialogUtils {
 
@@ -157,6 +159,45 @@ object DialogUtils {
 
         btnSave?.setOnClickListener {
             listener.onPicked("${listHour[positionItemListHour % listHour.size]}:${listMinute[positionItemListMinute % listMinute.size]}")
+            bottomSheetDialog.dismiss()
+        }
+
+        bottomSheetDialog.show()
+    }
+
+    fun showTextPickerBottomDialog(
+        context: Context,
+        dialogTitle: String,
+        list: List<String>,
+        textSizePickerDefault: Float? = null,
+        textSizePickerSelected: Float? = null,
+        listener: TextPickerListener
+    ) {
+        val bottomSheetDialog = BottomSheetDialog(context, R.style.BottomSheetDialogTheme)
+        bottomSheetDialog.setContentView(R.layout.text_picker_dialog)
+
+        val textPickerView = bottomSheetDialog.findViewById<TextPickerView>(R.id.textPickerView)
+        val btnDialog = bottomSheetDialog.findViewById<TextView>(R.id.btnDialog)
+        val tvDialogTitle = bottomSheetDialog.findViewById<TextView>(R.id.tvDialogTitle)
+
+        tvDialogTitle?.text = dialogTitle
+
+        textSizePickerDefault?.let {
+            textPickerView?.setTextSizePickerDefault(textSizePickerDefault)
+        }
+
+        textSizePickerSelected?.let {
+            textPickerView?.setTextSizePickerSelected(textSizePickerSelected)
+        }
+        if (list.isNotEmpty()) {
+            textPickerView?.setCustomList(list)
+            textPickerView?.visibility = View.VISIBLE
+        } else {
+            textPickerView?.visibility = View.INVISIBLE
+        }
+
+        btnDialog?.setOnClickListener {
+            listener.onTextPicked("${textPickerView?.getTextPicked()}")
             bottomSheetDialog.dismiss()
         }
 

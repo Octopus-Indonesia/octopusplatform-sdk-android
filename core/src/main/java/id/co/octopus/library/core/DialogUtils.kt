@@ -171,6 +171,8 @@ object DialogUtils {
         list: List<String>,
         textSizePickerDefault: Float? = null,
         textSizePickerSelected: Float? = null,
+        textColorPickerDefault: Int? = null,
+        textColorPickerSelected: Int? = null,
         listener: TextPickerListener
     ) {
         val bottomSheetDialog = BottomSheetDialog(context, R.style.BottomSheetDialogTheme)
@@ -183,12 +185,21 @@ object DialogUtils {
         tvDialogTitle?.text = dialogTitle
 
         textSizePickerDefault?.let {
-            textPickerView?.setTextSizePickerDefault(textSizePickerDefault)
+            textPickerView?.setTextSizePickerDefault(it)
         }
 
         textSizePickerSelected?.let {
-            textPickerView?.setTextSizePickerSelected(textSizePickerSelected)
+            textPickerView?.setTextSizePickerSelected(it)
         }
+
+        textColorPickerDefault?.let {
+            textPickerView?.setTextColorPickerDefault(it)
+        }
+
+        textColorPickerSelected?.let {
+            textPickerView?.setTextColorPickerSelected(it)
+        }
+
         if (list.isNotEmpty()) {
             textPickerView?.setCustomList(list)
             textPickerView?.visibility = View.VISIBLE

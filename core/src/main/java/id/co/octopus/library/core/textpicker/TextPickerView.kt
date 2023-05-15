@@ -116,6 +116,14 @@ class TextPickerView : BaseTextPickerView {
         textSizePickerDefault = textSize
     }
 
+    fun setTextColorPickerSelected(color: Int) {
+        textColorPickerSelected = color
+    }
+
+    fun setTextColorPickerDefault(color: Int) {
+        textColorPickerDefault = color
+    }
+
     override fun fadeView(view: RecyclerView, duration: Long, alpha: Float) {
         super.startFadeAnimation(
             listOf(binding.viewTopShade, binding.viewBottomShade),

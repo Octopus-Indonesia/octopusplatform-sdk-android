@@ -1,6 +1,13 @@
 # octopusplatform-sdk-android
 This library is a collection of components and utilities that will be used in other Octopus Android projects
 
+<p>
+    <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"/></a>
+    <a href="https://android-arsenal.com/api?level=19s"><img alt="API level 21" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
+    <a href="https://github.com/KotlinBy/awesome-kotlin"><img alt="Kotlin" src="https://img.shields.io/badge/Awesome-Kotlin-orange"/></a>
+    </a>
+</p>
+
 ## To Install
 
 Step 1. Add the JitPack repository to your build file

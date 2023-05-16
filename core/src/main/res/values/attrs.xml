@@ -11,6 +11,8 @@
             <enum name="end" value="5"/>
             <enum name="center" value="17"/>
         </attr>
+        <attr name="fontFamilyTextPickerSelected" format="reference" />
+        <attr name="fontFamilyTextPickerDefault" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="TextPickerOverlay">

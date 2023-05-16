@@ -49,6 +49,8 @@
         app:textGravityOfPicker="center"
         app:textSizePickerDefault="18sp"
         app:textSizePickerSelected="20sp"
+        app:fontFamilyTextPickerSelected="@font/poppins_extrabold"
+        app:fontFamilyTextPickerDefault="@font/poppins_regular"
         app:backgroundCenterOfView="@drawable/bg_green"
         app:layout_constraintTop_toBottomOf="@id/btnSampleButtonState"
         />

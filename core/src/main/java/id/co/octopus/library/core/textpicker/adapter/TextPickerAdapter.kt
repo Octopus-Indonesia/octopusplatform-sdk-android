@@ -17,6 +17,8 @@ internal class TextPickerAdapter(
     private var textSizePickerSelected: Float = 0f
     private var textSizePickerDefault: Float = 0f
     private var gravityValue: Int = 0
+    private var fontResIdTextPickerDefault: Int = 0
+    private var fontResIdTextPickerSelected: Int = 0
 
     fun updateData(
         newItems: List<String>,
@@ -25,6 +27,8 @@ internal class TextPickerAdapter(
         gravityValue: Int,
         textSizePickerSelected: Float,
         textSizePickerDefault: Float,
+        fontResIdTextPickerDefault: Int,
+        fontResIdTextPickerSelected: Int,
     ) {
         val diffResult = DiffUtil.calculateDiff(MyDiffCallback(items, newItems))
         items = newItems
@@ -33,11 +37,23 @@ internal class TextPickerAdapter(
         this.gravityValue = gravityValue
         this.textSizePickerDefault = textSizePickerDefault
         this.textSizePickerSelected = textSizePickerSelected
+        this.fontResIdTextPickerDefault = fontResIdTextPickerDefault
+        this.fontResIdTextPickerSelected = fontResIdTextPickerSelected
         diffResult.dispatchUpdatesTo(this)
     }
 
     fun setSelectedIndex(index: Int) {
         selectedIndex = index
+        notifyDataSetChanged()
+    }
+
+    fun setFontResIdTextPickerDefault(resId: Int) {
+        fontResIdTextPickerDefault = resId
+        notifyDataSetChanged()
+    }
+
+    fun setFontResIdTextPickerSelected(resId: Int) {
+        fontResIdTextPickerSelected = resId
         notifyDataSetChanged()
     }
 
@@ -47,14 +63,16 @@ internal class TextPickerAdapter(
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_text_picker_selected, parent, false)
                 TextPickerSelectedViewHolder(
-                    view, textColorPickerSelected, gravityValue, textSizePickerSelected
+                    view, textColorPickerSelected,
+                    gravityValue, textSizePickerSelected, fontResIdTextPickerSelected
                 )
             }
             else -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_text_picker_default, parent, false)
                 TextPickerDefaultViewHolder(
-                    view, textColorPickerDefault, gravityValue, textSizePickerDefault
+                    view, textColorPickerDefault,
+                    gravityValue, textSizePickerDefault, fontResIdTextPickerDefault
                 )
             }
         }

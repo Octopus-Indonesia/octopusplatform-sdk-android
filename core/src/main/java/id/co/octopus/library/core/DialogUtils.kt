@@ -173,7 +173,10 @@ object DialogUtils {
         textSizePickerSelected: Float? = null,
         textColorPickerDefault: Int? = null,
         textColorPickerSelected: Int? = null,
+        fontFamilyTextPickerDefault: Int? = null,
+        fontFamilyTextPickerSelected: Int? = null,
         tag: String = "",
+        selectedIndex: Int? = null,
         listener: TextPickerListener
     ) {
         val bottomSheetDialog = BottomSheetDialog(context, R.style.BottomSheetDialogTheme)
@@ -201,6 +204,18 @@ object DialogUtils {
             textPickerView?.setTextColorPickerSelected(it)
         }
 
+        fontFamilyTextPickerDefault?.let {
+            textPickerView?.setFontResIdTextPickerDefault(it)
+        }
+
+        fontFamilyTextPickerSelected?.let {
+            textPickerView?.setFontResIdTextPickerSelected(it)
+        }
+
+        selectedIndex?.let {
+            textPickerView?.setSelectedIndex(it)
+        }
+
         if (list.isNotEmpty()) {
             textPickerView?.setCustomList(list)
             textPickerView?.visibility = View.VISIBLE
@@ -210,8 +225,9 @@ object DialogUtils {
 
         btnDialog?.setOnClickListener {
             listener.onTextPicked(
-                "${textPickerView?.getTextPicked()}",
-                tag
+                textSelected = "${textPickerView?.getTextPicked()}",
+                tag = tag,
+                selectedIndex = textPickerView?.getSelectedIndex()
             )
             bottomSheetDialog.dismiss()
         }

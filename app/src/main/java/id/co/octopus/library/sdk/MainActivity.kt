@@ -13,6 +13,9 @@ import id.co.octopus.library.core.textpicker.TextPickerView
 import id.co.octopus.library.core.timepicker.TimePickerListener
 
 class MainActivity : AppCompatActivity(), TimePickerListener, TextPickerListener {
+
+    private var textPickerLastPosition = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,7 +57,10 @@ class MainActivity : AppCompatActivity(), TimePickerListener, TextPickerListener
                 listener = this@MainActivity,
                 tag = "tag1",
                 textSizePickerSelected = resources.getDimension(R.dimen.text_picker_view_selected_size),
-                textSizePickerDefault = resources.getDimension(R.dimen.text_picker_view_default_size)
+                textSizePickerDefault = resources.getDimension(R.dimen.text_picker_view_default_size),
+                selectedIndex = textPickerLastPosition,
+                fontFamilyTextPickerDefault = R.font.poppins_bold,
+                fontFamilyTextPickerSelected = R.font.poppins_regular
             )
         }
     }
@@ -81,7 +87,8 @@ class MainActivity : AppCompatActivity(), TimePickerListener, TextPickerListener
     /*
     * Get text who selected in bottom dialog
     * */
-    override fun onTextPicked(textSelected: String, tag: String?) {
+    override fun onTextPicked(textSelected: String, tag: String?, selectedIndex: Int?) {
+        textPickerLastPosition = selectedIndex ?: 0
         when(tag) {
             "tag1" -> {
                 Toast.makeText(

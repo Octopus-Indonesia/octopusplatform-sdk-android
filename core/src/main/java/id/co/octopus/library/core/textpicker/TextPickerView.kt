@@ -32,13 +32,16 @@ class TextPickerView : BaseTextPickerView {
         LayoutInflater.from(context), this, true
     )
 
-    private val rvData = binding.rvData
+    private val rvData: RecyclerView by lazy { binding.rvData }
 
     private var textColorPickerSelected: Int = ContextCompat.getColor(context, R.color.text_color_picker_selected)
     private var textColorPickerDefault: Int = ContextCompat.getColor(context, R.color.text_color_picker_default)
     private var gravityValue = Gravity.START
     private var textSizePickerSelected: Float = context.resources.getDimension(R.dimen.text_picker_view_selected_size)
     private var textSizePickerDefault: Float = context.resources.getDimension(R.dimen.text_picker_view_default_size)
+    private var posSelected: Int = 0
+    private var fontResIdTextPickerSelected: Int = 0
+    private var fontResIdTextPickerDefault: Int = 0
 
     private var list = emptyList<String>()
     private val snapHelper = LinearSnapHelper()
@@ -69,7 +72,17 @@ class TextPickerView : BaseTextPickerView {
             gravityValue = this.getInt(R.styleable.TextPickerView_textGravityOfPicker, Gravity.START)
             textSizePickerSelected = this.getDimension(R.styleable.TextPickerView_textSizePickerSelected, textSizePickerSelected)
             textSizePickerDefault = this.getDimension(R.styleable.TextPickerView_textSizePickerDefault, textSizePickerDefault)
+            fontResIdTextPickerDefault = getResourceId(R.styleable.TextPickerView_fontFamilyTextPickerDefault, 0)
+            fontResIdTextPickerSelected = getResourceId(R.styleable.TextPickerView_fontFamilyTextPickerSelected, 0)
         }.recycle()
+    }
+
+    fun getSelectedIndex(): Int {
+        return posSelected
+    }
+
+    fun setSelectedIndex(selectedIndex: Int) {
+        posSelected = selectedIndex
     }
 
     fun getTextPicked(): String {
@@ -87,10 +100,13 @@ class TextPickerView : BaseTextPickerView {
             setHasFixedSize(true)
             adapter = listAdapter
             layoutManager = SlowLinearLayoutManager(context, rvData)
-            layoutManager?.scrollToPosition(0)
+            layoutManager?.scrollToPosition(posSelected)
             snapHelper.attachToRecyclerView(this)
-            listAdapter.setSelectedIndex(0)
-            addListeners { position -> listAdapter.setSelectedIndex(position) }
+            listAdapter.setSelectedIndex(posSelected)
+            addListeners { position ->
+                posSelected = position
+                listAdapter.setSelectedIndex(position)
+            }
         }
     }
 
@@ -104,8 +120,12 @@ class TextPickerView : BaseTextPickerView {
             textColorPickerDefault,
             gravityValue,
             textSizePickerSelected,
-            textSizePickerDefault
+            textSizePickerDefault,
+            fontResIdTextPickerDefault,
+            fontResIdTextPickerSelected
         )
+        rvData.scrollToPosition(posSelected)
+        listAdapter.setSelectedIndex(posSelected)
     }
 
     fun setTextSizePickerSelected(textSize: Float) {
@@ -122,6 +142,16 @@ class TextPickerView : BaseTextPickerView {
 
     fun setTextColorPickerDefault(color: Int) {
         textColorPickerDefault = color
+    }
+
+    fun setFontResIdTextPickerDefault(resId: Int) {
+        fontResIdTextPickerDefault = resId
+        listAdapter.setFontResIdTextPickerDefault(fontResIdTextPickerDefault)
+    }
+
+    fun setFontResIdTextPickerSelected(resId: Int) {
+        fontResIdTextPickerSelected = resId
+        listAdapter.setFontResIdTextPickerSelected(fontResIdTextPickerSelected)
     }
 
     override fun fadeView(view: RecyclerView, duration: Long, alpha: Float) {
